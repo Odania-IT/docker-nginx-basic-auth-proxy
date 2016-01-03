@@ -1,8 +1,7 @@
 FROM odaniait/docker-base:latest
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
-RUN apt-get update
-RUN apt-get install -y nginx-full apache2-utils
+RUN add-apt-repository ppa:nginx/stable && apt-get update && apt-get install -y nginx apache2-utils
 
 ## Install nginx runit service
 RUN mkdir /etc/service/nginx

@@ -20,7 +20,9 @@ else
 		echo $PROXY_AUTH_USER_PASSWORD > /etc/nginx/basic_auth.htpasswd
 		cp /etc/nginx-vhosts/auth.vhost.conf /etc/nginx/sites-enabled/proxy.conf
 	else
-		cp /etc/nginx-vhosts/no-auth.vhost.conf /etc/nginx/sites-enabled/proxy.conf
+		if [ -n "${NO_AUTH_PROXY}" ]; then
+			cp /etc/nginx-vhosts/no-auth.vhost.conf /etc/nginx/sites-enabled/proxy.conf
+		fi
 	fi
 fi
 

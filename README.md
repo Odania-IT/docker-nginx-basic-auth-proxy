@@ -34,6 +34,10 @@ PROXY_AUTH_USER_PASSWORD: myuser:mypasswordhash
 
 In that case you do not have the clear password in the docker-compose file.
 
+If you want a proxy without basic auth, simply set:
+NO_AUTH_PROXY: true
+as environment variable.
+
 The target proxy will be detected from the link. The alias app is used internally and the string TARGET_HOST will be replaced
 with the ip:port of the app in all files for the following pattern:
 /etc/nginx/sites-enabled/*.conf
